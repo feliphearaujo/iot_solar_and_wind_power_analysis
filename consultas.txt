@@ -1,0 +1,24 @@
+select * from wind_power.autogen.wind_power
+
+
+1) vendo a relação entre velocidade do vento e potencia gerada (gauge)
+	SELECT * FROM wind_power.autogen.wind_power LIMIT 1 (dado mais antigo da tabela)
+	
+	SELECT MAX(wind_power_watt) AS max_wind_power, wind_speed_mph FROM wind_power.autogen.wind_power
+	
+2) analise da velocidade do vento ao longo do dia
+
+	SELECT wind_speed_mph, time FROM wind_power.autogen.wind_power
+	
+3) análise do dia com maior geração
+	SELECT MAX(wind_power_watt) AS max_wind_power, wind_speed_mph, time FROM wind_power.autogen.wind_power
+	
+4) análise do dia com menor geração
+	SELECT MIN(wind_power_watt) AS MIN_wind_power, wind_speed_mph, time FROM wind_power.autogen.wind_power
+	
+5)geração média de potencia ao longo do tempo (bar chart)
+	SELECT Mean(wind_power_watt) AS Mean_wind_power, time FROM wind_power.autogen.wind_power 
+	
+6) geração média no dia 23 (last 30 dias) bar chart
+	SELECT mean(wind_power_watt) from wind_power.autogen.wind_power where time > now()-17d
+	1656
